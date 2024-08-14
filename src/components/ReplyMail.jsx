@@ -12,6 +12,8 @@ import { IoMdCode } from "react-icons/io";
 import { IoLinkSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { TbSquareLetterA } from "react-icons/tb";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function ReplyMail({ threadId, onClose }) {
   const [replyData, setReplyData] = useState({
@@ -60,6 +62,23 @@ function ReplyMail({ threadId, onClose }) {
     }));
   };
 
+  const customToolbar = () => (
+    <div
+      id="toolbar"
+      className="flex w-full px-4 py-2 bg-[#23272C] border-b border-[#41464B]"
+    >
+      <span className="ql-formats w-1/2">
+        <button className="ql-bold" />
+        <button className="ql-italic" />
+        <button className="ql-underline" />
+      </span>
+      <span className="ql-formats w-1/2 flex">
+        <button className="ql-save mr-5">SAVE</button>
+        <button className="ql-variables mr-5">Variables</button>
+      </span>
+    </div>
+  );
+
   return (
     <div className="bg-gray-400/25 -p-4 fixed top-0 left-0 flex justify-center items-center h-full w-full z-20">
       <div className="bg-[#141517] w-1/2 h-4/5 rounded-lg border border-[#41464B]">
@@ -103,17 +122,19 @@ function ReplyMail({ threadId, onClose }) {
           />
         </div>
 
-        <div className="flex text-sm py-2 border-b border-[#41464B] px-4 pr-8 pt-8 h-2/3">
-          <textarea
-            className="bg-transparent ml-4 w-full h-full"
-            placeholder="Message Body"
-            name="body"
+        <div className="flex flex-col text-sm py-2 border-b border-[#41464B] px-4 pr-8 pt-8 h-2/3">
+          {customToolbar()}
+          <ReactQuill
             value={replyData.body}
             onChange={handleTextAreaChange}
+            theme="snow"
+            modules={{ toolbar: "#toolbar" }}
+            className="h-3/5 text-[#f2f2f7] w-full bg-transparent"
+            placeholder="Message Body"
           />
         </div>
 
-        <div className="flex space-x-8 items-center h-16 ml-8 mb-4">
+        <div className="flex space-x-8 items-center h-16 ml-8 mb-18">
           <div
             className="bg-gradient-to-r from-[#4B63DD] to-[#0524BFFC] px-5 py-2 rounded-md flex items-center cursor-pointer"
             onClick={handleSendReply}
