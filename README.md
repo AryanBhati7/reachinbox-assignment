@@ -18,7 +18,7 @@ Before setting up the project, ensure that you have the following installed on y
 To get started, you need to clone the project repository from GitHub to your local machine. Open your terminal and run:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/AryanBhati7/reachinbox-assignment.git
 ```
 
 This command will create a directory with the name of your repository and download all the files to your local machine.
@@ -28,7 +28,7 @@ This command will create a directory with the name of your repository and downlo
 After cloning the repository, move into the project directory by running:
 
 ```bash
-cd your-repo-name
+cd reachinbox-assignment
 ```
 
 This command sets your terminal's working directory to the project folder.
@@ -87,17 +87,4 @@ If you encounter any issues during setup or while running the project, consider 
 - Check if the port `5173` is free, or configure the server to run on a different port by modifying the `vite.config.js` file.
 - Review error messages in the terminal for clues, and refer to the Vite or React documentation for solutions.
 
-### Contributing
 
-If you'd like to contribute to this project, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a Pull Request.
-
----
-
-Feel free to adapt these instructions to fit the specific requirements of your project!
